@@ -1,0 +1,30 @@
+---
+import ContactForm from './react/ContactForm';
+---
+
+<section id="hizmet-saglayiciyim" class="py-16 sm:py-20 lg:py-28 bg-white">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="max-w-2xl mx-auto">
+      {/* Section header */}
+      <div class="text-center mb-10 sm:mb-12 section-reveal">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary-50 text-primary-700 text-sm font-medium mb-6">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+          </svg>
+          Hizmet Sağlayıcılar İçin
+        </div>
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-neutral-900 mb-4">
+          Hizmet sağlayıcı mısınız?
+        </h2>
+        <p class="text-neutral-500 text-lg leading-relaxed">
+          Mezar bakım hizmeti sağlıyorsanız, aşağıdaki formu doldurun, sizinle iletişime geçelim.
+        </p>
+      </div>
+
+      {/* Form */}
+      <div class="section-reveal bg-neutral-50 rounded-2xl p-6 sm:p-8 border border-neutral-100">
+        <ContactForm client:visible />
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,45 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import HeroSlider from '../components/HeroSlider.astro';
+import TrustMessage from '../components/TrustMessage.astro';
+import HowItWorks from '../components/HowItWorks.astro';
+import WhyVazifem from '../components/WhyVazifem.astro';
+import ProviderForm from '../components/ProviderForm.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppButton from '../components/WhatsAppButton.astro';
+---
+
+<Layout>
+  <Navbar />
+
+  <main>
+    <HeroSlider />
+    <TrustMessage />
+    <HowItWorks />
+    <WhyVazifem />
+    <ProviderForm />
+  </main>
+
+  <Footer />
+  <WhatsAppButton />
+
+  {/* Section reveal scroll observer */}
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const reveals = document.querySelectorAll('.section-reveal');
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('revealed');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+      );
+      reveals.forEach((el) => observer.observe(el));
+    });
+  </script>
+</Layout>
