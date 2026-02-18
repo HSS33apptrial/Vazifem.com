@@ -8,6 +8,7 @@ import vercel from '@astrojs/vercel';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://vazifem.com',
+  output: 'server',
   adapter: vercel(),
   integrations: [react(), sitemap()],
   vite: {
