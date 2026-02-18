@@ -11,16 +11,25 @@ export default function ContactForm() {
     e.preventDefault();
     setState('sending');
 
+    const form = formRef.current!;
+    const data = new FormData(form);
+
+    const body = new URLSearchParams({
+      from_name: data.get('from_name') as string || '',
+      phone:     data.get('phone')     as string || '',
+      city:      data.get('city')      as string || '',
+      district:  data.get('district')  as string || '',
+      message:   data.get('message')   as string || '',
+    });
+
     try {
-      const emailjs = await import('@emailjs/browser');
-      await emailjs.sendForm(
-        import.meta.env.PUBLIC_EMAILJS_SERVICE_ID || 'YOUR_SERVICE_ID',
-        import.meta.env.PUBLIC_EMAILJS_TEMPLATE_ID || 'YOUR_TEMPLATE_ID',
-        formRef.current!,
-        import.meta.env.PUBLIC_EMAILJS_PUBLIC_KEY || 'YOUR_PUBLIC_KEY',
-      );
+      await fetch(import.meta.env.PUBLIC_GOOGLE_SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        body,
+      });
       setState('success');
-      formRef.current?.reset();
+      form.reset();
     } catch {
       setState('error');
     }
