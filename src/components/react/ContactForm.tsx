@@ -12,22 +12,13 @@ export default function ContactForm() {
     setState('sending');
 
     const form = formRef.current!;
-    const data = new FormData(form);
-
-    const body = new URLSearchParams({
-      from_name: data.get('from_name') as string || '',
-      phone:     data.get('phone')     as string || '',
-      city:      data.get('city')      as string || '',
-      district:  data.get('district')  as string || '',
-      message:   data.get('message')   as string || '',
-    });
 
     try {
-      await fetch(import.meta.env.PUBLIC_GOOGLE_SCRIPT_URL, {
+      const res = await fetch('/api/provider', {
         method: 'POST',
-        mode: 'no-cors',
-        body,
+        body: new FormData(form),
       });
+      if (!res.ok) throw new Error('failed');
       setState('success');
       form.reset();
     } catch {
