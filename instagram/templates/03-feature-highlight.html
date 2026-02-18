@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vazifem - Instagram Post: Özellik Tanıtımı</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&subset=latin-ext&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --primary-50: #f0fdf4;
+      --primary-100: #dcfce7;
+      --primary-200: #bbf7d0;
+      --primary-500: #22c55e;
+      --primary-600: #16a34a;
+      --primary-700: #15803d;
+      --primary-900: #14532d;
+      --cream: #faf9f6;
+      --neutral-100: #f5f5f4;
+      --neutral-200: #e7e5e4;
+      --neutral-400: #a8a29e;
+      --neutral-500: #78716c;
+      --neutral-900: #1c1917;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      background: #e7e5e4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    .post {
+      width: 1080px;
+      height: 1080px;
+      position: relative;
+      overflow: hidden;
+      background: #ffffff;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Top accent strip */
+    .accent-strip {
+      height: 6px;
+      background: linear-gradient(90deg, var(--primary-500), var(--primary-600), var(--primary-700));
+      flex-shrink: 0;
+    }
+
+    /* Header */
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 36px 56px 0;
+      flex-shrink: 0;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .logo svg {
+      width: 28px;
+      height: 28px;
+    }
+
+    .logo span {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--primary-600);
+      letter-spacing: -0.02em;
+    }
+
+    .feature-badge {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      background: var(--primary-50);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--primary-600);
+      letter-spacing: -0.02em;
+    }
+
+    /* Main content */
+    .main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 0 80px;
+      gap: 32px;
+    }
+
+    .icon-box {
+      width: 120px;
+      height: 120px;
+      border-radius: 28px;
+      background: var(--primary-50);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 0 1px rgba(22, 163, 74, 0.08);
+    }
+
+    .icon-box svg {
+      width: 56px;
+      height: 56px;
+      color: var(--primary-600);
+    }
+
+    .feature-title {
+      font-size: 48px;
+      font-weight: 700;
+      color: var(--neutral-900);
+      text-align: center;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+    }
+
+    .feature-desc {
+      font-size: 26px;
+      font-weight: 400;
+      color: var(--neutral-500);
+      text-align: center;
+      max-width: 750px;
+      line-height: 1.5;
+      letter-spacing: -0.01em;
+    }
+
+    /* Mockup card */
+    .mockup-card {
+      margin-top: 8px;
+      border-radius: 16px;
+      background: var(--cream);
+      border: 1px solid var(--neutral-200);
+      padding: 24px 32px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .mockup-photo {
+      width: 120px;
+      height: 88px;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    .mockup-before {
+      background: var(--neutral-100);
+      border: 1px solid var(--neutral-200);
+    }
+
+    .mockup-after {
+      background: var(--primary-50);
+      border: 1px solid var(--primary-100);
+    }
+
+    .mockup-label {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .mockup-before .mockup-label { color: var(--neutral-400); }
+    .mockup-after .mockup-label { color: var(--primary-600); }
+
+    .mockup-icon svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .mockup-before .mockup-icon svg { color: var(--neutral-400); }
+    .mockup-after .mockup-icon svg { color: var(--primary-500); }
+
+    .mockup-arrow {
+      color: var(--neutral-400);
+      flex-shrink: 0;
+    }
+
+    .mockup-arrow svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    /* Footer */
+    .footer {
+      padding: 0 56px 36px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .footer-url {
+      font-size: 20px;
+      font-weight: 500;
+      color: var(--primary-600);
+      letter-spacing: -0.01em;
+    }
+  </style>
+</head>
+<body>
+  <div class="post">
+    <div class="accent-strip"></div>
+
+    <div class="header">
+      <!-- EDITABLE: Logo -->
+      <div class="logo">
+        <svg viewBox="0 0 935 1046" fill="var(--primary-600)" xmlns="http://www.w3.org/2000/svg"><path d="M928.416 6.80127C932.053 9.90769 933.907 11.9606 934.76 16.7192C935.377 25.6773 931.219 32.9784 927.416 40.8013C926.374 42.9665 925.333 45.1319 924.291 47.2974C922.52 50.9721 920.747 54.6453 918.964 58.3142C914.207 68.1086 909.593 77.9621 905.029 87.8479C901.896 94.6286 898.716 101.382 895.479 108.114C888.876 121.895 882.656 135.853 876.416 149.801C876.092 150.527 875.767 151.252 875.433 152C863.398 178.905 851.463 205.846 840.271 233.115C837.128 240.768 833.86 248.298 830.291 255.762C820.44 276.68 811.99 298.338 803.125 319.688C801.194 324.338 799.258 328.986 797.32 333.633C796.514 335.569 795.707 337.504 794.901 339.44C792.977 344.062 791.048 348.681 789.112 353.297C783.827 365.909 778.665 378.568 773.541 391.246C767.175 406.994 760.7 422.696 754.202 438.39C744.139 462.519 744.139 462.519 734.557 486.841C732.437 492.344 730.163 497.786 727.916 503.239C724.6 511.324 721.375 519.393 718.539 527.66C717.52 530.511 716.41 533.282 715.225 536.067C712.139 543.416 709.211 550.824 706.29 558.239C705.381 560.545 704.47 562.85 703.559 565.155C693.28 591.188 683.285 617.326 673.436 643.525C672.298 646.552 671.159 649.578 670.02 652.604C660.462 677.996 650.92 703.395 641.423 728.81C640.062 732.451 638.7 736.092 637.338 739.733C636.394 742.256 635.453 744.779 634.511 747.302C631.822 754.497 629.094 761.669 626.213 768.79C623.865 774.615 621.73 780.474 619.729 786.426C616.165 796.825 612.326 807.103 608.396 817.368C608.152 818.004 607.909 818.639 607.659 819.293C607.408 819.947 607.158 820.601 606.9 821.274C604.71 827.004 602.565 832.749 600.424 838.497C577.618 899.629 553.279 962.153 507.797 1010.33C506.476 1011.74 505.172 1013.16 503.87 1014.58C490.025 1029.18 470.008 1043.41 449.354 1045.04C433.792 1045.39 417.851 1038.9 405.416 1029.8C404.192 1028.91 404.192 1028.91 402.944 1028C390.985 1018.85 381.349 1007.83 372.416 995.801C371.771 994.939 371.771 994.939 371.112 994.059C364.599 985.319 358.842 976.248 353.416 966.801C353.025 966.126 352.633 965.452 352.23 964.756C325.419 918.394 306.829 866.729 290.137 815.975C287.169 806.973 284.049 798.036 280.854 789.114C277.048 778.481 273.377 767.813 269.835 757.089C266.881 748.16 263.853 739.257 260.791 730.364C260.555 729.678 260.319 728.992 260.076 728.285C257.063 719.54 254.033 710.802 250.965 702.077C249.444 697.748 247.937 693.415 246.448 689.075C241.802 675.548 237.008 662.083 232.126 648.64C228.58 638.872 225.124 629.082 221.791 619.239C212.018 590.524 201.045 562.199 190.229 533.864C189.985 533.224 189.741 532.584 189.49 531.924C185.629 521.811 181.621 511.758 177.586 501.714C176.333 498.593 175.082 495.471 173.832 492.349C157.674 451.845 157.674 451.845 140.416 411.801C139.829 410.487 139.242 409.173 138.655 407.859C129.925 388.335 120.841 369 111.416 349.801C111.024 349 110.632 348.199 110.227 347.373C107.997 342.828 105.724 338.307 103.416 333.801C102.992 332.971 102.568 332.14 102.131 331.284C94.5961 316.574 86.6618 302.125 78.4164 287.801C77.9758 287.031 77.5353 286.261 77.0814 285.467C70.2993 273.621 62.9389 262.189 55.4164 250.801C54.5166 249.432 53.6168 248.062 52.7172 246.692C40.7564 228.547 27.6319 211.435 13.8924 194.609C10.7 190.699 7.53151 186.774 4.41638 182.801C3.17888 181.285 3.17887 181.285 1.91638 179.739C-0.16758 175.658 -0.352452 172.293 0.416375 167.801C3.52613 160.906 9.75714 157.21 16.6117 154.571C25.6843 151.655 34.2991 150.65 43.7679 150.563C44.6523 150.553 45.5366 150.544 46.4478 150.534C49.3124 150.509 52.1767 150.496 55.0414 150.489C56.0215 150.486 57.0016 150.484 58.0113 150.481C75.1492 150.476 91.5236 151.775 108.416 154.801C109.342 154.956 110.267 155.111 111.22 155.271C130.793 158.557 150.06 164.272 168.416 171.801C169.221 172.129 170.026 172.456 170.856 172.793C194.2 182.345 215.557 194.186 235.416 209.801C236.28 210.472 237.144 211.142 238.034 211.833C251.198 222.302 263.406 234.092 274.416 246.801C274.868 247.32 275.32 247.838 275.786 248.372C283.259 257.05 289.76 266.43 296.229 275.864C296.633 276.448 297.038 277.033 297.454 277.635C302.559 285.036 306.977 292.484 310.842 300.606C312.466 303.903 314.273 307.028 316.166 310.176C331.8 336.976 342.72 367.518 352.916 396.739C353.202 397.556 353.487 398.374 353.781 399.216C359.823 416.589 365.356 434.118 370.416 451.801C370.719 452.858 371.021 453.914 371.333 455.003C384.299 500.437 396.442 546.131 406.833 592.228C407.714 596.112 408.625 599.988 409.541 603.864C409.778 604.87 409.778 604.87 410.02 605.896C410.806 609.237 411.602 612.575 412.409 615.911C413.987 622.476 415.489 629.04 416.766 635.671C418.9 646.733 421.504 657.638 424.291 668.551C424.964 671.201 425.635 673.85 426.307 676.5C426.746 678.233 427.186 679.966 427.626 681.699C428.806 686.347 429.952 691 431.049 695.668C435.579 714.869 441.032 734.714 449.729 752.489C450.03 753.111 450.331 753.734 450.641 754.375C452.608 758.11 454.634 759.959 458.416 761.801C486.311 741.932 492.589 678.625 500.272 647.446C501.874 640.947 503.493 634.458 505.241 627.997C508.496 615.894 511.455 603.713 514.479 591.551C515.718 586.567 516.959 581.582 518.202 576.598C518.619 574.917 518.619 574.917 519.045 573.201C520.546 567.177 522.109 561.177 523.776 555.196C524.772 551.47 525.537 547.707 526.291 543.926C527.654 537.252 529.145 530.621 530.748 524C532.467 516.845 534.138 509.681 535.748 502.5C540.941 479.394 546.415 456.367 552.146 433.389C552.658 431.334 553.168 429.28 553.678 427.225C557.655 411.205 561.918 395.309 566.626 379.487C567.857 375.304 569.024 371.103 570.182 366.899C570.392 366.139 570.601 365.379 570.817 364.595C571.648 361.579 572.475 358.561 573.302 355.543C573.927 353.265 574.554 350.988 575.182 348.711C575.363 348.046 575.545 347.38 575.731 346.694C577.119 341.668 578.74 336.738 580.416 331.801C580.921 330.289 581.425 328.777 581.928 327.264C592.182 296.537 602.805 266.06 616.541 236.683C617.718 234.153 618.846 231.601 619.979 229.051C622.887 222.684 626.025 216.433 629.201 210.196C630.052 208.518 630.899 206.839 631.742 205.157C638.802 191.085 646.555 177.811 655.416 164.801C656.216 163.611 657.016 162.421 657.815 161.231C669.118 144.623 681.518 129.096 695.12 114.325C697.839 111.337 700.454 108.268 703.041 105.165C704.416 103.801 704.416 103.801 706.416 103.801C706.643 103.228 706.87 102.654 707.104 102.063C708.779 99.176 710.786 97.6647 713.416 95.6138C717.24 92.5739 720.941 89.4775 724.541 86.1763C728.994 82.1302 733.596 78.3985 738.416 74.8013C739.235 74.1877 740.053 73.5741 740.897 72.9419C748.555 67.2863 756.455 62.0157 764.416 56.8013C765.412 56.1477 766.407 55.4942 767.432 54.8208C778.612 47.586 790.44 41.5912 802.416 35.8013C803.295 35.3765 804.173 34.9518 805.078 34.5142C826.06 24.4517 847.503 16.5387 869.963 10.4731C872.404 9.80462 874.834 9.1051 877.264 8.39502C914.8 -2.517 914.8 -2.517 928.416 6.80127Z"/></svg>
+        <span>Vazifem</span>
+      </div>
+      <!-- EDITABLE: Feature number -->
+      <div class="feature-badge">01</div>
+    </div>
+
+    <div class="main">
+      <!-- EDITABLE: Feature icon — swap SVG for different features -->
+      <div class="icon-box">
+        <!-- Camera icon (for "Fotoğraflı Teslim") -->
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/>
+          <path d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"/>
+        </svg>
+      </div>
+
+      <!-- EDITABLE: Feature title -->
+      <h1 class="feature-title">Fotoğraflı Teslim</h1>
+
+      <!-- EDITABLE: Feature description -->
+      <p class="feature-desc">Öncesi ve sonrası fotoğraflarla hizmetin gerçekten yapıldığından emin olun.</p>
+
+      <!-- Mockup: Before/After preview -->
+      <div class="mockup-card">
+        <div class="mockup-photo mockup-before">
+          <div class="mockup-icon">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          </div>
+          <span class="mockup-label">Öncesi</span>
+        </div>
+
+        <div class="mockup-arrow">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </div>
+
+        <div class="mockup-photo mockup-after">
+          <div class="mockup-icon">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          </div>
+          <span class="mockup-label">Sonrası</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <!-- EDITABLE: Website URL -->
+      <span class="footer-url">vazifem.com</span>
+    </div>
+  </div>
+</body>
+</html>
